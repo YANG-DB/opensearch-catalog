@@ -6,7 +6,12 @@
   "license": "Apache-2.0",
   "type-alias": "logs-nginx",
   "type": "logs",
-  "labels": ["log", "http", "communication"],
+  "labels": [
+    "log",
+    "http",
+    "communication",
+    "Flint-S3"
+  ],
   "author": "OpenSearch",
   "sourceUrl": "https://github.com/opensearch-project/opensearch-catalog/integrations/observability/nginx/info",
   "statics": {
@@ -36,6 +41,23 @@
     }
   ],
   "assets": {
+    "queries": [
+      {
+        "name": "create_table",
+        "version": "1.0.0",
+        "language": "sql"
+      },
+      {
+        "name": "create_mv",
+        "version": "1.0.0",
+        "language": "sql"
+      },
+      {
+        "name": "refresh_mv",
+        "version": "1.0.0",
+        "language": "sql"
+      }
+    ],
     "savedObjects": {
       "name": "nginx",
       "version": "1.0.0"
