@@ -44,18 +44,18 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/main/schema/system/catalog.schema'
+                  $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/main/docs/schema/system/catalog.schema'
               example:
                 observability:
                   application/json:
                     schema:
                       type: array
                       items:
-                        $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/main/schema/system/catalog.schema'
+                        $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/main/docs/schema/system/catalog.schema'
                     examples:
                       catalog: observability
                       version: '1.0'
-                      url: https://github.com/opensearch-project/opensearch-catalog/tree/main/schema/observability
+                      url: https://github.com/opensearch-project/opensearch-catalog/blob/main/docs/schema/system/samples/catalog.json
                       categories:
                         - category: logs
                           version: '1.0'
@@ -110,14 +110,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/main/schema/system/catalog.schema'
+              $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/main/docs/schema/system/catalog.schema'
             example:
               observability:
                 application/json:
                   schema:
                     type: array
                     items:
-                      $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/main/schema/system/catalog.schema'
+                      $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/main/docs/schema/system/catalog.schema'
                   examples:
                     catalog: observability
                     version: '1.0'
@@ -190,14 +190,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/main/schema/system/catalog.schema'
+                $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/main/docs/schema/system/catalog.schema'
               example:
                 observability:
                   application/json:
                     schema:
                       type: array
                       items:
-                        $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/main/schema/system/catalog.schema'
+                        $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/main/docs/schema/system/catalog.schema'
                     examples:
                       catalog: observability
                       version: '1.0'
@@ -270,7 +270,65 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/main/schema/system/dictionary.schema'
+                $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/4691ec8a01abfabbbe3e728103a3408329179958/docs/schema/system/dictionary.schema'
+              example:
+                observability:
+                  application/json:
+                    schema:
+  /schema/{id}/entities:
+    get:
+      tags:
+        - developers
+      summary: get catalog's entities according to it's id
+      operationId: catalogEntitiesById
+      description: |
+        Get a specific catalog entities by it's Id
+      parameters:
+        - in: path
+          name: id
+          description: catalog instance Id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: catalog entities
+          content:
+            application/json:
+              schema:
+                $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/4691ec8a01abfabbbe3e728103a3408329179958/docs/schema/system/entities.schema'
+              example:
+                observability:
+                  application/json:
+                    schema:
+  /schema/{id}/entities/{entityId}:
+    get:
+      tags:
+        - developers
+      summary: get catalog's entity according to it's id
+      operationId: catalogEntityById
+      description: |
+        Get a specific catalog entityby it's Id
+      parameters:
+        - in: path
+          name: id
+          description: catalog instance Id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: entityId
+          description: entity Id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: catalog entity
+          content:
+            application/json:
+              schema:
+                $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/4691ec8a01abfabbbe3e728103a3408329179958/docs/schema/system/entitiy.schema'
               example:
                 observability:
                   application/json:
