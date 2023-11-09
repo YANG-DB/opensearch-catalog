@@ -275,14 +275,14 @@ paths:
                 observability:
                   application/json:
                     schema:
-  /schema/{id}/entities:
+  /schema/{id}/fields:
     get:
       tags:
         - developers
-      summary: get catalog's entities according to it's id
-      operationId: catalogEntitiesById
+      summary: get catalog's fields according to it's id
+      operationId: catalogFieldsById
       description: |
-        Get a specific catalog entities by it's Id
+        Get a specific catalog Fields by it's Id
       parameters:
         - in: path
           name: id
@@ -292,23 +292,23 @@ paths:
             type: string
       responses:
         '200':
-          description: catalog entities
+          description: catalog Fields
           content:
             application/json:
               schema:
-                $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/4691ec8a01abfabbbe3e728103a3408329179958/docs/schema/system/entities.schema'
+                $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/4691ec8a01abfabbbe3e728103a3408329179958/docs/schema/system/fields.schema'
               example:
                 observability:
                   application/json:
                     schema:
-  /schema/{id}/entities/{entityId}:
+  /schema/{id}/fields/{fieldId}:
     get:
       tags:
         - developers
-      summary: get catalog's entity according to it's id
-      operationId: catalogEntityById
+      summary: get catalog's field according to it's id
+      operationId: catalogFieldById
       description: |
-        Get a specific catalog entityby it's Id
+        Get a specific catalog Field by it's Id
       parameters:
         - in: path
           name: id
@@ -317,18 +317,146 @@ paths:
           schema:
             type: string
         - in: path
-          name: entityId
-          description: entity Id
+          name: fieldId
+          description: field instance Id
           required: true
           schema:
             type: string
       responses:
         '200':
-          description: catalog entity
+          description: catalog Field
+          content:
+            application/json:
+              schema:
+                $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/4691ec8a01abfabbbe3e728103a3408329179958/docs/schema/system/field.schema'
+              example:
+                observability:
+                  application/json:
+                    schema:
+  /schema/{id}/categories:
+    get:
+      tags:
+        - developers
+      summary: get catalog's categories according to it's id
+      operationId: catalogCategoriesById
+      description: |
+        Get a specific catalog categories by it's Id
+      parameters:
+        - in: path
+          name: id
+          description: catalog instance Id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: catalog categories
+          content:
+            application/json:
+              schema:
+                $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/4691ec8a01abfabbbe3e728103a3408329179958/docs/schema/system/categories.schema'
+              example:
+                observability:
+                  application/json:
+                    schema: 
+  /schema/{id}/categories/{categoryId}:
+    get:
+      tags:
+        - developers
+      summary: get catalog's category according to it's id
+      operationId: catalogCategoryById
+      description: |
+        Get a specific catalog category by it's Id
+      parameters:
+        - in: path
+          name: id
+          description: catalog instance Id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: categoryId
+          description: category Id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: catalog category
           content:
             application/json:
               schema:
                 $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/4691ec8a01abfabbbe3e728103a3408329179958/docs/schema/system/entitiy.schema'
+              example:
+                observability:
+                  application/json:
+                    schema:
+  /schema/{id}/categories/{categoryId}/compoenets:
+    get:
+      tags:
+        - developers
+      summary: get catalog's category's compoenents according to it's id
+      operationId: catalogCategoryComponentsById
+      description: |
+        Get a specific catalog category components by it's Id
+      parameters:
+        - in: path
+          name: id
+          description: catalog instance Id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: categoryId
+          description: category Id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: catalog category components
+          content:
+            application/json:
+              schema:
+                $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/4691ec8a01abfabbbe3e728103a3408329179958/docs/schema/system/components.schema'
+              example:
+                observability:
+                  application/json:
+                    schema:
+  /schema/{id}/categories/{categoryId}/compoenets/{componentId}:
+    get:
+      tags:
+        - developers
+      summary: get catalog's category's compoenents according to it's id
+      operationId: catalogCategoryComponentsById
+      description: |
+        Get a specific catalog category components by it's Id
+      parameters:
+        - in: path
+          name: id
+          description: catalog instance Id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: categoryId
+          description: category Id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: componentId
+          description: component Id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: catalog category component
+          content:
+            application/json:
+              schema:
+                $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/4691ec8a01abfabbbe3e728103a3408329179958/docs/schema/system/component.schema'
               example:
                 observability:
                   application/json:
@@ -361,6 +489,38 @@ paths:
             application/json:
               schema:
                 $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/main/schema/system/instances.schema'
+              example:
+                observability:
+                  application/json:
+                    schema:
+  /schema/{id}/instances/{instanceId}:
+    get:
+      tags:
+        - developers
+      summary: get catalog's instance according to it's id
+      operationId: catalogInstanceById
+      description: |
+        Get a specific catalog Instance by it's Id
+      parameters:
+        - in: path
+          name: id
+          description: catalog schema Id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: instanceId
+          description: catalog schema Id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: catalog instance
+          content:
+            application/json:
+              schema:
+                $ref: 'https://github.com/opensearch-project/opensearch-catalog/blob/main/schema/system/instance.schema'
               example:
                 observability:
                   application/json:

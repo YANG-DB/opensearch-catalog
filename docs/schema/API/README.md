@@ -1,20 +1,31 @@
-# API elements
-The catalog/schema API exposes the capability to express the domain entities structure.
-Domain entities are a logical representation of the underlying index mapping that reflects the actual physical structure.
-As detailed in the [README](../README.md) document, the catalog (schema) is a unification of entities that share a domain contextual relationship.
+# Schema API
 
-For Observability - the domain is composed out of 3 distinct entities (pronounced signals in the open telemetry terminology)
- - Traces
- - Logs
- - Metrics
+Version: 1.0.0
+
+This is the Schema Catalog API
+
+# API elements
+
+The catalog/schema API exposes the capability to express the domain entities structure.
+Domain entities are a logical representation of the underlying index mapping that reflects the actual physical
+structure.
+As detailed in the [README](../README.md) document, the catalog (schema) is a unification of entities that share a
+domain contextual relationship.
+
+For Observability - the domain is composed out of 3 distinct entities (pronounced signals in the open telemetry
+terminology)
+
+- Traces
+- Logs
+- Metrics
 
 Each one represents a sub-graph of components (entities) which relate to one another in a specific manner.
 
 The following API will allow to query and understand:
- - the graph hierarchy within the schema
- - the attribute dictionary for each entity
- - the actual instances physically created from the schema templates
 
+- the graph hierarchy within the schema
+- the attribute dictionary for each entity
+- the actual instances physically created from the schema templates
 
 ## Schema
 
@@ -22,7 +33,9 @@ The `/schema` endpoint will return all the domain specific catalogs stored withi
 The `/schema/{id}` endpoint will return a specific domain catalog stored within the cluster.
 
 ### Schema Structure
-The schema structure contains both the compositional classes that are part of the specific schema (categories, components, fields)
+
+The schema structure contains both the compositional classes that are part of the specific schema (categories,
+components, fields)
 For additional information see [README](../README.md)
 
 **Examples**
@@ -30,16 +43,17 @@ For additional information see [README](../README.md)
 - The [catalogs schema](../system/catalog.schema)
 - The [catalogs instance example](../system/samples/catalog.json)
 
-
 ## Dictionary
 
-The `/schema/{id}/dictionary` endpoint will return a specific domain catalog dictionary of fields and attributes encapsulated within this schema
+The `/schema/{id}/dictionary` endpoint will return a specific domain catalog dictionary of fields and attributes
+encapsulated within this schema
 
 It's also possible to filter the dictionary according to any of the following categories:
- - category : `GET /schema/Observability/dictionary?category=logs`
- - component: `GET /schema/Observability/dictionary?component=http`
- - name: `GET /schema/Observability/dictionary?field=response*`
- - mixture:  `GET /schema/Observability/dictionary?category=traces&component=services`
+
+- category : `GET /schema/Observability/dictionary?category=logs`
+- component: `GET /schema/Observability/dictionary?component=http`
+- name: `GET /schema/Observability/dictionary?field=response*`
+- mixture:  `GET /schema/Observability/dictionary?category=traces&component=services`
 
 **Examples**
 
@@ -48,18 +62,19 @@ It's also possible to filter the dictionary according to any of the following ca
 
 ## Instances
 
-The `/schema/{id}/instances` endpoint will return a specific domain list of instances which include all the domain's components that have been created using the schema's templates
+The `/schema/{id}/instances` endpoint will return a specific domain list of instances which include all the domain's
+components that have been created using the schema's templates
 
- - Indices (created using index mapping templates)
- - DataStreams (created using index mapping templates)
- - DataSource (created and associated with mapping templates)
+- Indices (created using index mapping templates)
+- DataStreams (created using index mapping templates)
+- DataSource (created and associated with mapping templates)
 
 It's also possible to filter the instances according to any of the following categories:
+
 - category : `GET /schema/Observability/instances?category=logs`
 - component: `GET /schema/Observability/instances?component=http`
 - name: `GET /schema/Observability/instances?field=response*`
 - mixture:  `GET /schema/Observability/instances?category=traces&component=services`
-
 
 **Examples**
 
@@ -68,28 +83,38 @@ It's also possible to filter the instances according to any of the following cat
 
 ---
 
-_This concept was inspired from the [OCSF](https://schema.ocsf.io/) schema model and [swagger](https://schema.ocsf.io/doc/index.html#/)_ 
+_This concept was inspired from the [OCSF](https://schema.ocsf.io/) schema model
+and [swagger](https://schema.ocsf.io/doc/index.html#/)_
 
 ---
 
 ## API Mock Tests
-The [Swagger](swagger.yaml) describes the API used by the Integration repository to support the `catalog`, `registry` and `store` functionalities.
+
+The [Swagger](swagger.yaml) describes the API used by the Integration repository to support the `catalog`, `registry`
+and `store` functionalities.
 
 Its possible to visualize the REST API using any on the numerous [online editors](https://editor.swagger.io/)
 ![](../../img/swagger-api.png)
 
 ### Setup mock server
-In order to test the API, we can utilize a swagger based mock library which allows ['contract based testing'](https://github.com/stoplightio/prism).
+
+In order to test the API, we can utilize a swagger based mock library which
+allows ['contract based testing'](https://github.com/stoplightio/prism).
 
 #### running the swagger mock server
+
 ````
 npm install -g @stoplight/prism-cli
 ````
-Once this tool is installed, the server can be run using the next command 
+
+Once this tool is installed, the server can be run using the next command
+
 ```
 prism mock swagger.yaml
 ```
+
 The next endpoints are presented:
+
 ```
 [10:32:12 a.m.] › [CLI] ℹ  info      GET        http://127.0.0.1:4010/schema?limit=41
 [10:32:12 a.m.] › [CLI] ℹ  info      POST       http://127.0.0.1:4010/schema
@@ -145,9 +170,12 @@ And will result with :
           "component": "communication",
           "version": "1.0",
           "url": "https://github.com/opensearch-project/opensearch-catalog/tree/main/schema/observability/logs/communication",
-          "tags": ["web"],
+          "tags": [
+            "web"
+          ],
           "container": false
-        }]
+        }
+      ]
     },
     {
       "category": "traces",
@@ -160,7 +188,8 @@ And will result with :
           "url": "https://github.com/opensearch-project/opensearch-catalog/tree/main/schema/observability/traces/traces",
           "tags": [],
           "container": true
-        }]
+        }
+      ]
     },
     {
       "category": "metrics",
@@ -173,15 +202,14 @@ And will result with :
           "url": "https://github.com/opensearch-project/opensearch-catalog/tree/main/schema/observability/metrics/metrics",
           "tags": [],
           "container": true
-        }]
+        }
+      ]
     }
   ]
 }
 ```
 
-
-
-####  running the swagger mock server as docker
+#### running the swagger mock server as docker
 
 One-liner docker command (assuming running from repository root):
 
