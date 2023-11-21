@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "type": "logs",
   "type-alias": "logs-apache",
-  "labels": ["log", "communication", "http"],
+  "labels": ["log", "communication", "http", ,"Flint S3"],
   "author": "OpenSearch",
   "sourceUrl": "https://github.com/opensearch-project/dashboards-observability/tree/main/server/adaptors/integrations/__data__/repository/apache/info",
   "statics": {
@@ -36,6 +36,23 @@
     }
   ],
   "assets": {
+    "tables": [
+      {
+        "name": "create_table_apache",
+        "version": "1.0.0",
+        "language": "sql"
+      },
+      {
+        "name": "create_mv_apache",
+        "version": "1.0.0",
+        "language": "sql"
+      },
+      {
+        "name": "refresh_mv_apache",
+        "version": "1.0.0",
+        "language": "sql"
+      }
+    ],
     "savedObjects": {
       "name": "apache",
       "version": "1.0.0"
