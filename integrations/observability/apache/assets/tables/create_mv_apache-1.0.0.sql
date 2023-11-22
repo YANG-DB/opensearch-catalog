@@ -1,6 +1,6 @@
 CREATE MATERIALIZED VIEW {table_name}_mview AS
 SELECT
-    @timestamp AS `@timestamp`,
+    '@timestamp' AS `@timestamp`,
     clientip as `communication.source.ip`,
     split_part (request, ' ', 1) as `http.request.method`,
     split_part (request, ' ', 2) as `http.url`,
