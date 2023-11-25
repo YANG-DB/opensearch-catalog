@@ -1,0 +1,71 @@
+# Copyright The OpenTelemetry Authors
+# SPDX-License-Identifier: Apache-2.0
+version: '3.9'
+x-default-logging: &logging
+  driver: "json-file"
+  options:
+    max-size: "5m"
+    max-file: "2"
+
+volumes:
+  opensearch-data:
+
+networks:
+  default:
+    name: opensearch-catalog-demo
+    driver: bridge
+
+services:
+  # OpenSearch store - node (not for production - no security - only for test purpose )
+  catalog-opensearch:
+    image: opensearchstaging/opensearch:${OPENSEARCH_VERSION}
+    container_name: catalog-opensearch-dashboards
+    environment:
+      - cluster.name=opensearch-cluster
+      - node.name=opensearch
+      - discovery.seed_hosts=opensearch
+      - cluster.initial_cluster_manager_nodes=opensearch
+      - bootstrap.memory_lock=true
+      - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536 # Maximum number of open files for the opensearch user - set to at least 65536
+        hard: 65536
+    volumes:
+      - opensearch-data:/usr/share/opensearch/data # Creates volume called opensearch-data1 and mounts it to the container
+    ports:
+      - 9200:9200
+      - 9600:9600
+    logging: *logging
+    expose:
+      - "9200"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "-f",
+          "https://localhost:9200/_cluster/health?wait_for_status=yellow",
+          "-ku",
+          "admin:admin"
+        ]
+      interval: 20s
+      timeout: 10s
+      retries: 10
+
+  # OpenSearch store - dashboard
+  catalog-opensearch-dashboards:
+    image: opensearchproject/opensearch-dashboards:${OPENSEARCH_VERSION} # Make sure the version of opensearch-dashboards matches the version of opensearch installed on other nodes
+    container_name: catalog-opensearch-dashboards
+    ports:
+      - 5601:5601 # Map host port 5601 to container port 5601
+    expose:
+      - "5601" # Expose port 5601 for web access to OpenSearch Dashboards
+    environment:
+      OPENSEARCH_HOSTS: '["https://opensearch:9200"]' # Define the OpenSearch nodes that OpenSearch Dashboards will query
+    depends_on:
+      - catalog-opensearch
+
