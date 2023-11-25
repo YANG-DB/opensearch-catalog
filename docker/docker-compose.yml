@@ -65,7 +65,9 @@ services:
     expose:
       - "5601" # Expose port 5601 for web access to OpenSearch Dashboards
     environment:
-      OPENSEARCH_HOSTS: '["https://opensearch:9200"]' # Define the OpenSearch nodes that OpenSearch Dashboards will query
+      opensearch.hosts: '["https://search-flint-dp-2-11-3o5ad5t2y2qryroxlqamu6ii74.us-west-2.es-release.amazonaws.com/"]'
+      opensearch.username: "admin"
+      opensearch.password: "admin"
     depends_on:
       - catalog-opensearch
 
