@@ -10,7 +10,7 @@ def read_json(file_path):
 
 def generate_html_for_section(data, section_title, item_key, modal=True, section_id="", modal_id_prefix=""):
     """Generate HTML content for a given section (Integrations or Visualizations)."""
-    html_content = f"<h2 class='collapsible' onclick='toggleSection(\"{section_id}\")'>{section_title}</h2>"
+    html_content = f"<h2 class='collapsible section-header' onclick='toggleSection(\"{section_id}\")'>{section_title}</h2>"
     html_content += f"<div class='container content' id='{section_id}'><div class='row'>"
 
     for i, item in enumerate(data.get(item_key, [])):
@@ -125,6 +125,18 @@ def generate_css():
             transition: max-height 0.2s ease-out;
             max-height: 1000px;
         }
+        .section-header {
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .section-header:hover {
+            transform: scale(1.05);
+            color: #4a90e2;
+        }
 
     </style>
     """
@@ -177,18 +189,14 @@ def generate_labels_html(labels_data):
 def generate_catalog_details(integrations_data):
     """Generate HTML content for catalog details."""
     catalog_html = f"""
-        <div class="container">
-            <img src="{integrations_data.get('statics', {}).get('logo', {}).get('path', '')}" style="width: 750px; height: 250px;" alt="Logo" />
-            <h1>{integrations_data.get('displayName', '')}</h1>
+        <div class="container" style="text-align: center;">
+            <img src="{integrations_data.get('statics', {}).get('logo', {}).get('path', '')}" style="width: 400px; height: auto;" alt="Logo" />
+            <h2><a href="{integrations_data.get('url', '')}" style="text-decoration: none; color: inherit; font-weight: bold; border-bottom: 2px solid transparent;" onmouseover="this.style.borderBottom='2px solid';" onmouseout="this.style.borderBottom='2px solid transparent';">{integrations_data.get('displayName', '')}</a></h2>
             <p><strong>Version:</strong> {integrations_data.get('version', '')}</p>
-            <p><strong>URL:</strong> <a href="{integrations_data.get('url', '')}">{integrations_data.get('url', '')}</a></p>
-            <p><strong>License:</strong> {integrations_data.get('license', '')}</p>
-            <p><strong>Author:</strong> {integrations_data.get('author', '')}</p>
             {generate_labels_html(integrations_data.get('labels', []))}
         </div>
     """
     return catalog_html
-
 
 def main():
     """Main function to generate the HTML content for the catalog."""
