@@ -192,7 +192,7 @@
       "gallery" : [
         {
           "asset": "dashboard",
-          "image": "https://raw.githubusercontent.com/opensearch-project/opensearch-catalog/main/integrations/observability/otel-schema-setup/static/otel-image.webp"
+          "image": "https://raw.githubusercontent.com/opensearch-project/opensearch-catalog/main/integrations/observability/otel-schema-setup/static/otel-image.svg"
         }],
       "tags": ["traces", "metrics", "logs", "services"]
     }
