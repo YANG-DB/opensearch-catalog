@@ -178,12 +178,10 @@ def generate_catalog_details(integrations_data):
     """Generate HTML content for catalog details."""
     catalog_html = f"""
         <div class="container">
-            <img src="{integrations_data.get('statics', {}).get('logo', {}).get('path', '')}" style="width: 750px; height: 250px;" alt="Logo" />
+            <img src="https://opensearch.org/assets/brand/PNG/Logo/opensearch_logo_darkmode.png" style="width: 400px; height: auto;" alt="Logo" />
             <h1>{integrations_data.get('displayName', '')}</h1>
             <p><strong>Version:</strong> {integrations_data.get('version', '')}</p>
             <p><strong>URL:</strong> <a href="{integrations_data.get('url', '')}">{integrations_data.get('url', '')}</a></p>
-            <p><strong>License:</strong> {integrations_data.get('license', '')}</p>
-            <p><strong>Author:</strong> {integrations_data.get('author', '')}</p>
             {generate_labels_html(integrations_data.get('labels', []))}
         </div>
     """
