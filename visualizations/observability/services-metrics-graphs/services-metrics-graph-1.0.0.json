@@ -1,0 +1,48 @@
+{
+  "name": "services-metrics-graphs",
+  "version": "1.0.0",
+  "displayName": "Services Metrics Graphs Widget",
+  "description": "Services Metrics Graph visualization showing different measurements",
+  "license": "Apache-2.0",
+  "type": "metrics",
+  "labels": ["metrics", "services"],
+  "author": "OpenSearch",
+  "sourceUrl": "https://github.com/opensearch-project/opensearch-catalog/tree/main/visualizations/observability/services-metrics-graphs",
+  "statics": {
+    "logo": {
+      "annotation": "Services Metrics Graph Logo",
+      "path": "logo.png"
+    },
+    "gallery": [
+      {
+        "annotation": "Services Metrics Graph",
+        "path": "services-metrics-graphs.png"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "metrics",
+      "version": "1.0.0"
+    },
+    {
+      "name": "services",
+      "version": "1.0.0"
+    }
+  ],
+  "assets": {
+    "savedObjects": [{
+      "name": "services-metrics-graphs",
+      "version": "1.0.0"
+    },{
+      "name": "namespace-control-filter",
+      "version": "1.0.0"
+    },{
+      "name": "services-metrics-graphs-dashboard",
+      "version": "1.0.0"
+    }]
+  },
+  "sampleData": {
+    "path": "bulk_data.json"
+  }
+}
