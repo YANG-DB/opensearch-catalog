@@ -1,0 +1,274 @@
+{
+  "template": {
+    "_meta": {
+      "version": "1.0.0",
+      "catalog": "ocsf",
+      "type": "api_activity",
+      "component": "s3",
+      "labels": [
+        "ocsf",
+        "aws",
+        "s3"
+      ]
+    },
+    "mappings": {
+      "properties": {
+        "activity_id": {
+          "type": "integer"
+        },
+        "activity_name": {
+          "type": "keyword"
+        },
+        "actor": {
+          "properties": {
+            "idp": {
+              "properties": {
+                "name": {
+                  "type": "keyword"
+
+                }
+              }
+            },
+            "invoked_by": {
+              "type": "keyword"
+
+            },
+            "session": {
+              "properties": {
+                "created_time": {
+                  "type": "long"
+                },
+                "created_time_dt": {
+                  "type": "date",
+                  "format": "date_time"
+                },
+                "issuer": {
+                  "type": "keyword"
+
+                }
+              }
+            },
+            "user": {
+              "properties": {
+                "account": {
+                  "properties": {
+                    "uid": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "credential_uid": {
+                  "type": "keyword"
+                },
+                "name": {
+                  "type": "keyword"
+                },
+                "type": {
+                  "type": "keyword"
+                },
+                "uid": {
+                  "type": "keyword"
+                },
+                "uid_alt": {
+                  "type": "keyword"
+                }
+              }
+            }
+          }
+        },
+        "api": {
+          "properties": {
+            "operation": {
+              "type": "keyword"
+            },
+            "request": {
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "enabled": false
+                },
+                "uid": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "response": {
+              "properties": {
+                "data": {
+                  "properties": {
+                    "directConnectGateways": {
+                      "type": "nested"
+                    }
+                  }
+                },
+                "error": {
+                  "type": "keyword"
+
+                },
+                "message": {
+                  "type": "keyword"
+
+                }
+              }
+            },
+            "service": {
+              "properties": {
+                "name": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "version": {
+              "type": "keyword"
+
+            }
+          }
+        },
+        "category_name": {
+          "type": "keyword"
+        },
+        "category_uid": {
+          "type": "integer"
+        },
+        "class_name": {
+          "type": "keyword"
+        },
+        "class_uid": {
+          "type": "integer"
+        },
+        "cloud": {
+          "properties": {
+            "provider": {
+              "type": "keyword"
+            },
+            "region": {
+              "type": "keyword"
+            }
+          }
+        },
+        "http_request": {
+          "properties": {
+            "user_agent": {
+              "type": "keyword"
+            }
+          }
+        },
+        "metadata": {
+          "properties": {
+            "log_name": {
+              "type": "keyword"
+            },
+            "log_provider": {
+              "type": "keyword"
+            },
+            "product": {
+              "properties": {
+                "feature": {
+                  "properties": {
+                    "name": {
+                      "type": "keyword"
+
+                    }
+                  }
+                },
+                "name": {
+                  "type": "keyword"
+                },
+                "vendor_name": {
+                  "type": "keyword"
+                },
+                "version": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "profiles": {
+              "type": "keyword"
+            },
+            "uid": {
+              "type": "keyword"
+            },
+            "version": {
+              "type": "keyword"
+            }
+          }
+        },
+        "observables": {
+          "type": "nested",
+          "properties": {
+            "name": {
+              "type": "keyword"
+            },
+            "type": {
+              "type": "keyword"
+            },
+            "type_id": {
+              "type": "integer"
+            },
+            "value": {
+              "type": "keyword"
+            }
+          }
+        },
+        "severity": {
+          "type": "keyword"
+        },
+        "severity_id": {
+          "type": "integer"
+        },
+        "src_endpoint": {
+          "properties": {
+            "ip": {
+              "type": "ip"
+            }
+          }
+        },
+        "status": {
+          "type": "keyword"
+
+        },
+        "status_id": {
+          "type": "integer"
+        },
+        "time": {
+          "type": "long"
+        },
+        "time_dt": {
+          "type": "date",
+          "format": "date_time"
+        },
+        "type_name": {
+          "type": "keyword"
+        },
+        "type_uid": {
+          "type": "integer"
+        },
+        "unmapped": {
+          "properties": {
+            "eventType": {
+              "type": "keyword"
+            },
+            "recipientAccountId": {
+              "type": "keyword"
+            },
+            "requestParameters": {
+              "type": "object",
+              "enabled": false
+            },
+            "responseElements": {
+              "properties": {
+                "directConnectGateways": {
+                  "type": "nested"
+                }
+              }
+            },
+            "userIdentity": {
+              "type": "object",
+              "enabled": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

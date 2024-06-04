@@ -1,0 +1,2114 @@
+{
+  "mapping_options": {
+    "authentication": {
+      "direct_mappings": [
+        {
+          "source": "eventVersion",
+          "destination": "metadata.product.version",
+          "type": "string"
+        },
+        {
+          "source": "eventType",
+          "destination": "metadata.event_code",
+          "type": "string"
+        },
+        {
+          "source": "eventTime",
+          "destination": "time",
+          "type": "timestamp",
+          "format": "unixtimewithformat",
+          "format_string": "yyyy-MM-dd'T'HH:mm:ss[.SSSSSSSSS][.SSSSSSSS][.SSSSSSS][.SSSSSS][.SSSSS][.SSSS][.SSS][.SS][.S]'Z'"
+        },
+        {
+          "source": "eventTime",
+          "destination": "time_dt",
+          "type": "timestamp",
+          "format": "unixtimewithformat",
+          "format_string": "yyyy-MM-dd'T'HH:mm:ss[.SSSSSSSSS][.SSSSSSSS][.SSSSSSS][.SSSSSS][.SSSSS][.SSSS][.SSS][.SS][.S]'Z'"
+        },
+        {
+          "source": "awsRegion",
+          "destination": "cloud.region",
+          "type": "string"
+        },
+        {
+          "source": "errorCode",
+          "destination": "api.response.error",
+          "type": "string"
+        },
+        {
+          "source": "eventName",
+          "destination": "api.operation",
+          "type": "string"
+        },
+        {
+          "source": "errorMessage",
+          "destination": "api.response.message",
+          "type": "string"
+        },
+        {
+          "source": "eventID",
+          "destination": "metadata.uid",
+          "type": "string"
+        },
+        {
+          "source": "additionalEventData.LoginTo",
+          "destination": "dst_endpoint.svc_name",
+          "type": "string"
+        },
+        {
+          "source": "apiVersion",
+          "destination": "api.version",
+          "type": "string"
+        },
+        {
+          "source": "eventSource",
+          "destination": "api.service.name",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.type",
+          "destination": "actor.user.type",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.userName",
+          "destination": "actor.user.name",
+          "type": "string",
+          "observable_name": "actor.user.name",
+          "observable_type": "User Name",
+          "observable_type_id": 4
+        },
+        {
+          "source": "userIdentity.principalId",
+          "destination": "actor.user.uid_alt",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.arn",
+          "destination": "actor.user.uid",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.accountId",
+          "destination": "actor.user.account.uid",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.accessKeyId",
+          "destination": "actor.user.credential_uid",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.sessionContext.attributes.creationDate",
+          "destination": "actor.session.created_time_dt",
+          "type": "timestamp",
+          "format": "unixtimewithformat",
+          "format_string": "yyyy-MM-dd'T'HH:mm:ss[.SSSSSSSSS][.SSSSSSSS][.SSSSSSS][.SSSSSS][.SSSSS][.SSSS][.SSS][.SS][.S]'Z'"
+        },
+        {
+          "source": "userIdentity.sessionContext.attributes.mfaAuthenticated",
+          "destination": "actor.session.is_mfa",
+          "type": "boolean"
+        },
+        {
+          "source": "userIdentity.sessionContext.sessionIssuer.arn",
+          "destination": "actor.session.issuer",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.invokedBy",
+          "destination": "actor.invoked_by",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.webIdFederationData.federatedProvider",
+          "destination": "actor.idp.name",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.identityProvider",
+          "destination": "actor.idp.name",
+          "type": "string"
+        },
+        {
+          "source": "userAgent",
+          "destination": "http_request.user_agent",
+          "type": "string"
+        },
+        {
+          "source": "vpcEndpointId",
+          "destination": "src_endpoint.uid",
+          "type": "string"
+        },
+        {
+          "source": "responseElements.assumedRoleUser.arn",
+          "destination": "session.uid",
+          "type": "string"
+        },
+        {
+          "source": "responseElements.assumedRoleUser.assumedRoleId",
+          "destination": "session.uid_alt",
+          "type": "string"
+        },
+        {
+          "source": "responseElements.credentials.accessKeyId",
+          "destination": "session.credential_uid",
+          "type": "string"
+        },
+        {
+          "source": "requestParameters",
+          "destination": "api.request.data",
+          "type": "string"
+        },
+        {
+          "source": "responseElements",
+          "destination": "api.response.data",
+          "type": "string"
+        }
+      ],
+      "transformations": [
+        {
+          "target": "class_name",
+          "value": "Authentication",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "class_uid",
+          "value": 3002,
+          "type": "integer",
+          "transformation": "literal"
+        },
+        {
+          "target": "category_name",
+          "value": "Identity & Access Management",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "category_uid",
+          "value": 3,
+          "type": "integer",
+          "transformation": "literal"
+        },
+        {
+          "target": "cloud.provider",
+          "value": "AWS",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "severity_id",
+          "value": 1,
+          "type": "integer",
+          "transformation": "literal"
+        },
+        {
+          "target": "severity",
+          "value": "Informational",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "metadata.product.name",
+          "value": "CloudTrail",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "metadata.product.vendor_name",
+          "value": "AWS",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "metadata.profiles[]",
+          "value": "cloud,datetime",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "metadata.version",
+          "value": "SCHEMA_VERSION",
+          "type": "string",
+          "transformation": "variable"
+        },
+        {
+          "if": {
+            "condition": {
+              "clauses": [
+                {
+                  "lhs": {
+                    "type": "field",
+                    "column": "eventCategory"
+                  },
+                  "operation": "EXISTS"
+                }
+              ]
+            },
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "eventCategory",
+                "destination": "metadata.product.feature.name",
+                "type": "string"
+              }
+            ]
+          },
+          "else": {
+            "operations": [
+              {
+                "operation": "literal",
+                "value": "Management, Data, and Insights",
+                "destination": "metadata.product.feature.name",
+                "type": "string"
+              }
+            ]
+          },
+          "transformation": "conditional"
+        },
+        {
+          "if": {
+            "condition": {
+              "clauses": [
+                {
+                  "lhs": {
+                    "type": "field",
+                    "value": "sourceIPAddress"
+                  },
+                  "operation": "CONTAINS",
+                  "rhs": {
+                    "type": "pattern",
+                    "value": "^(?:[0-9]{1,3}\\.){3}[0-9]{1,3}$"
+                  }
+                }
+              ]
+            },
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "sourceIPAddress",
+                "destination": "src_endpoint.ip",
+                "type": "string",
+                "observable_name": "src_endpoint.ip",
+                "observable_type": "IP Address",
+                "observable_type_id": 2
+              }
+            ]
+          },
+          "else": {
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "sourceIPAddress",
+                "destination": "src_endpoint.domain",
+                "type": "string",
+                "observable_name": "src_endpoint.domain",
+                "observable_type": "Hostname",
+                "observable_type_id": 1
+              }
+            ]
+          },
+          "transformation": "conditional"
+        },
+        {
+          "if": {
+            "condition": {
+              "clauses": [
+                {
+                  "lhs": {
+                    "type": "field",
+                    "column": "requestID"
+                  },
+                  "operation": "EXISTS"
+                }
+              ]
+            },
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "requestID",
+                "destination": "api.request.uid",
+                "type": "string"
+              }
+            ]
+          },
+          "else": {
+            "operations": [
+              {
+                "operation": "literal",
+                "value": "''",
+                "destination": "api.request.uid",
+                "type": "string"
+              }
+            ]
+          },
+          "transformation": "conditional"
+        },
+        {
+          "if": {
+            "condition": {
+              "clauses": [
+                {
+                  "lhs": {
+                    "type": "field",
+                    "value": "eventSource"
+                  },
+                  "operation": "EQUALS",
+                  "ignoreCase": true,
+                  "rhs": {
+                    "type": "string",
+                    "value": "signin.amazonaws.com"
+                  }
+                }
+              ]
+            },
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "userIdentity.principalId",
+                "destination": "user.uid_alt",
+                "type": "string"
+              },
+              {
+                "operation": "mapping",
+                "source": "userIdentity.arn",
+                "destination": "user.uid",
+                "type": "string"
+              }
+            ]
+          },
+          "else": {
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "requestParameters.roleArn",
+                "destination": "user.uid",
+                "type": "string"
+              },
+              {
+                "operation": "mapping",
+                "source": "requestParameters.roleSessionName",
+                "destination": "user.name",
+                "type": "string",
+                "observable_name": "user.name",
+                "observable_type": "User Name",
+                "observable_type_id": 4
+              }
+            ]
+          },
+          "transformation": "conditional"
+        },
+        {
+          "if": {
+            "condition": {
+              "clauses": [
+                {
+                  "lhs": {
+                    "type": "field",
+                    "column": "responseElements.issuer"
+                  },
+                  "operation": "EXISTS"
+                }
+              ]
+            },
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "responseElements.issuer",
+                "destination": "session.issuer",
+                "type": "string"
+              }
+            ]
+          },
+          "else": {
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "responseElements.provider",
+                "destination": "session.issuer",
+                "type": "string"
+              }
+            ]
+          },
+          "transformation": "conditional"
+        },
+        {
+          "if": {
+            "condition": {
+              "logic": "OR",
+              "clauses": [
+                {
+                  "lhs": {
+                    "type": "field",
+                    "value": "eventName"
+                  },
+                  "operation": "EQUALS",
+                  "rhs": {
+                    "type": "pattern",
+                    "value": "(^ConsoleLogin|^ExternalIdPDirectoryLogin|^UserAuthentication)"
+                  }
+                },
+                {
+                  "lhs": {
+                    "type": "field",
+                    "value": "eventName"
+                  },
+                  "operation": "CONTAINS",
+                  "rhs": {
+                    "type": "pattern",
+                    "value": "^AssumeRole($|\\S+$)"
+                  }
+                }
+              ]
+            },
+            "operations": [
+              {
+                "operation": "literal",
+                "destination": "activity_name",
+                "value": "Logon",
+                "type": "string"
+              },
+              {
+                "operation": "literal",
+                "destination": "activity_id",
+                "value": 1,
+                "type": "integer"
+              },
+              {
+                "operation": "literal",
+                "destination": "type_uid",
+                "value": 300201,
+                "type": "long"
+              },
+              {
+                "operation": "literal",
+                "destination": "type_name",
+                "value": "Authentication: Logon",
+                "type": "string"
+              }
+            ]
+          },
+          "else": {
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "eventName",
+                "destination": "activity_name",
+                "type": "string"
+              },
+              {
+                "operation": "literal",
+                "destination": "activity_id",
+                "value": 99,
+                "type": "integer"
+              },
+              {
+                "operation": "literal",
+                "destination": "type_uid",
+                "value": 300299,
+                "type": "long"
+              },
+              {
+                "operation": "literal",
+                "destination": "type_name",
+                "value": "Authentication: Other",
+                "type": "string"
+              }
+            ]
+          },
+          "transformation": "conditional"
+        },
+        {
+          "if": {
+            "condition": {
+              "clauses": [
+                {
+                  "lhs": {
+                    "type": "field",
+                    "value": "eventName"
+                  },
+                  "operation": "EQUALS",
+                  "rhs": {
+                    "type": "string",
+                    "value": "UserAuthentication"
+                  }
+                }
+              ]
+            },
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "serviceEventDetails.UserAuthentication",
+                "destination": "status",
+                "type": "string"
+              }
+            ]
+          },
+          "else": {
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "responseElements.ConsoleLogin",
+                "destination": "status",
+                "type": "string"
+              }
+            ]
+          },
+          "transformation": "conditional"
+        },
+        {
+          "source": "additionalEventData.MFAUsed",
+          "target": "is_mfa",
+          "type": "boolean",
+          "ignoreCase": true,
+          "default": "null",
+          "mapemptyvalues": false,
+          "cases": [
+            {
+              "from": "Yes",
+              "to": true
+            },
+            {
+              "from": "No",
+              "to": false
+            }
+          ],
+          "transformation": "enum"
+        }
+      ]
+    },
+    "account_change": {
+      "direct_mappings": [
+        {
+          "source": "eventVersion",
+          "destination": "metadata.product.version",
+          "type": "string"
+        },
+        {
+          "source": "eventType",
+          "destination": "metadata.event_code",
+          "type": "string"
+        },
+        {
+          "source": "eventTime",
+          "destination": "time",
+          "type": "timestamp",
+          "format": "unixtimewithformat",
+          "format_string": "yyyy-MM-dd'T'HH:mm:ss[.SSSSSSSSS][.SSSSSSSS][.SSSSSSS][.SSSSSS][.SSSSS][.SSSS][.SSS][.SS][.S]'Z'"
+        },
+        {
+          "source": "eventTime",
+          "destination": "time_dt",
+          "type": "timestamp",
+          "format": "unixtimewithformat",
+          "format_string": "yyyy-MM-dd'T'HH:mm:ss[.SSSSSSSSS][.SSSSSSSS][.SSSSSSS][.SSSSSS][.SSSSS][.SSSS][.SSS][.SS][.S]'Z'"
+        },
+        {
+          "source": "awsRegion",
+          "destination": "cloud.region",
+          "type": "string"
+        },
+        {
+          "source": "errorCode",
+          "destination": "api.response.error",
+          "type": "string"
+        },
+        {
+          "source": "eventName",
+          "destination": "api.operation",
+          "type": "string"
+        },
+        {
+          "source": "errorMessage",
+          "destination": "api.response.message",
+          "type": "string"
+        },
+        {
+          "source": "eventID",
+          "destination": "metadata.uid",
+          "type": "string"
+        },
+        {
+          "source": "apiVersion",
+          "destination": "api.version",
+          "type": "string"
+        },
+        {
+          "source": "eventSource",
+          "destination": "api.service.name",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.type",
+          "destination": "actor.user.type",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.userName",
+          "destination": "actor.user.name",
+          "type": "string",
+          "observable_name": "actor.user.name",
+          "observable_type": "User Name",
+          "observable_type_id": 4
+        },
+        {
+          "source": "userIdentity.principalId",
+          "destination": "actor.user.uid_alt",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.arn",
+          "destination": "actor.user.uid",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.accountId",
+          "destination": "actor.user.account.uid",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.accessKeyId",
+          "destination": "actor.user.credential_uid",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.sessionContext.attributes.creationDate",
+          "destination": "actor.session.created_time_dt",
+          "type": "timestamp",
+          "format": "unixtimewithformat",
+          "format_string": "yyyy-MM-dd'T'HH:mm:ss[.SSSSSSSSS][.SSSSSSSS][.SSSSSSS][.SSSSSS][.SSSSS][.SSSS][.SSS][.SS][.S]'Z'"
+        },
+        {
+          "source": "userIdentity.sessionContext.attributes.mfaAuthenticated",
+          "destination": "actor.session.is_mfa",
+          "type": "boolean"
+        },
+        {
+          "source": "userIdentity.sessionContext.sessionIssuer.arn",
+          "destination": "actor.session.issuer",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.invokedBy",
+          "destination": "actor.invoked_by",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.webIdFederationData.federatedProvider",
+          "destination": "actor.idp.name",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.identityProvider",
+          "destination": "actor.idp.name",
+          "type": "string"
+        },
+        {
+          "source": "userAgent",
+          "destination": "http_request.user_agent",
+          "type": "string"
+        },
+        {
+          "source": "vpcEndpointId",
+          "destination": "src_endpoint.uid",
+          "type": "string"
+        },
+        {
+          "source": "requestParameters.policyArn",
+          "destination": "policy.uid",
+          "type": "string"
+        },
+        {
+          "source": "requestParameters",
+          "destination": "api.request.data",
+          "type": "string"
+        },
+        {
+          "source": "responseElements",
+          "destination": "api.response.data",
+          "type": "string"
+        }
+      ],
+      "transformations": [
+        {
+          "target": "class_name",
+          "value": "Account Change",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "class_uid",
+          "value": 3001,
+          "type": "integer",
+          "transformation": "literal"
+        },
+        {
+          "target": "category_name",
+          "value": "Identity & Access Management",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "category_uid",
+          "value": 3,
+          "type": "integer",
+          "transformation": "literal"
+        },
+        {
+          "target": "cloud.provider",
+          "value": "AWS",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "severity_id",
+          "value": 1,
+          "type": "integer",
+          "transformation": "literal"
+        },
+        {
+          "target": "severity",
+          "value": "Informational",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "metadata.product.name",
+          "value": "CloudTrail",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "metadata.product.vendor_name",
+          "value": "AWS",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "metadata.profiles[]",
+          "value": "cloud,datetime",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "metadata.version",
+          "value": "SCHEMA_VERSION",
+          "type": "string",
+          "transformation": "variable"
+        },
+        {
+          "if": {
+            "condition": {
+              "clauses": [
+                {
+                  "lhs": {
+                    "type": "field",
+                    "column": "eventCategory"
+                  },
+                  "operation": "EXISTS"
+                }
+              ]
+            },
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "eventCategory",
+                "destination": "metadata.product.feature.name",
+                "type": "string"
+              }
+            ]
+          },
+          "else": {
+            "operations": [
+              {
+                "operation": "literal",
+                "value": "Management, Data, and Insights",
+                "destination": "metadata.product.feature.name",
+                "type": "string"
+              }
+            ]
+          },
+          "transformation": "conditional"
+        },
+        {
+          "if": {
+            "condition": {
+              "clauses": [
+                {
+                  "lhs": {
+                    "type": "field",
+                    "column": "requestID"
+                  },
+                  "operation": "EXISTS"
+                }
+              ]
+            },
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "requestID",
+                "destination": "api.request.uid",
+                "type": "string"
+              }
+            ]
+          },
+          "else": {
+            "operations": [
+              {
+                "operation": "literal",
+                "value": "''",
+                "destination": "api.request.uid",
+                "type": "string"
+              }
+            ]
+          },
+          "transformation": "conditional"
+        },
+        {
+          "if": {
+            "condition": {
+              "clauses": [
+                {
+                  "lhs": {
+                    "type": "field",
+                    "column": "errorCode"
+                  },
+                  "operation": "EXISTS"
+                }
+              ]
+            },
+            "operations": [
+              {
+                "operation": "literal",
+                "value": "Failure",
+                "destination": "status",
+                "type": "string"
+              }
+            ]
+          },
+          "else": {
+            "operations": [
+              {
+                "operation": "literal",
+                "value": "Success",
+                "destination": "status",
+                "type": "string"
+              }
+            ]
+          },
+          "transformation": "conditional"
+        },
+        {
+          "if": {
+            "condition": {
+              "clauses": [
+                {
+                  "lhs": {
+                    "type": "field",
+                    "value": "responseElements.role.path"
+                  },
+                  "operation": "EQUALS",
+                  "rhs": {
+                    "type": "string",
+                    "value": "/service-role/"
+                  }
+                }
+              ]
+            },
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "responseElements.role.description",
+                "destination": "user.name",
+                "type": "string",
+                "observable_name": "user.name",
+                "observable_type": "User Name",
+                "observable_type_id": 4
+              },
+              {
+                "operation": "mapping",
+                "source": "responseElements.role.roleId",
+                "destination": "user.uid_alt",
+                "type": "string"
+              },
+              {
+                "operation": "mapping",
+                "source": "responseElements.role.arn",
+                "destination": "user.uid",
+                "type": "string"
+              }
+            ]
+          },
+          "elseIf": [
+            {
+              "condition": {
+                "clauses": [
+                  {
+                    "lhs": {
+                      "type": "field",
+                      "column": "responseElements.role.roleName"
+                    },
+                    "operation": "EXISTS"
+                  }
+                ]
+              },
+              "operations": [
+                {
+                  "operation": "mapping",
+                  "source": "responseElements.role.roleName",
+                  "destination": "user.name",
+                  "type": "string",
+                  "observable_name": "user.name",
+                  "observable_type": "User Name",
+                  "observable_type_id": 4
+                },
+                {
+                  "operation": "mapping",
+                  "source": "responseElements.role.roleId",
+                  "destination": "user.uid_alt",
+                  "type": "string"
+                },
+                {
+                  "operation": "mapping",
+                  "source": "responseElements.role.arn",
+                  "destination": "user.uid",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "condition": {
+                "clauses": [
+                  {
+                    "lhs": {
+                      "type": "field",
+                      "column": "responseElements.user.userName"
+                    },
+                    "operation": "EXISTS"
+                  }
+                ]
+              },
+              "operations": [
+                {
+                  "operation": "mapping",
+                  "source": "responseElements.user.userName",
+                  "destination": "user.name",
+                  "type": "string",
+                  "observable_name": "user.name",
+                  "observable_type": "User Name",
+                  "observable_type_id": 4
+                },
+                {
+                  "operation": "mapping",
+                  "source": "responseElements.user.userId",
+                  "destination": "user.uid_alt",
+                  "type": "string"
+                },
+                {
+                  "operation": "mapping",
+                  "source": "responseElements.user.arn",
+                  "destination": "user.uid",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "condition": {
+                "clauses": [
+                  {
+                    "lhs": {
+                      "type": "field",
+                      "column": "requestParameters.userName"
+                    },
+                    "operation": "EXISTS"
+                  }
+                ]
+              },
+              "operations": [
+                {
+                  "operation": "mapping",
+                  "source": "requestParameters.userName",
+                  "destination": "user.name",
+                  "type": "string",
+                  "observable_name": "user.name",
+                  "observable_type": "User Name",
+                  "observable_type_id": 4
+                }
+              ]
+            }
+          ],
+          "else": {
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "requestParameters.roleName",
+                "destination": "user.name",
+                "type": "string",
+                "observable_name": "user.name",
+                "observable_type": "User Name",
+                "observable_type_id": 4
+              }
+            ]
+          },
+          "transformation": "conditional"
+        },
+        {
+          "if": {
+            "condition": {
+              "clauses": [
+                {
+                  "lhs": {
+                    "type": "field",
+                    "value": "sourceIPAddress"
+                  },
+                  "operation": "CONTAINS",
+                  "rhs": {
+                    "type": "pattern",
+                    "value": "^(?:[0-9]{1,3}\\.){3}[0-9]{1,3}$"
+                  }
+                }
+              ]
+            },
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "sourceIPAddress",
+                "destination": "src_endpoint.ip",
+                "type": "string",
+                "observable_name": "src_endpoint.ip",
+                "observable_type": "IP Address",
+                "observable_type_id": 2
+              }
+            ]
+          },
+          "else": {
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "sourceIPAddress",
+                "destination": "src_endpoint.domain",
+                "type": "string",
+                "observable_name": "src_endpoint.domain",
+                "observable_type": "Hostname",
+                "observable_type_id": 1
+              }
+            ]
+          },
+          "transformation": "conditional"
+        },
+        {
+          "if": {
+            "condition": {
+              "clauses": [
+                {
+                  "lhs": {
+                    "type": "field",
+                    "value": "eventName"
+                  },
+                  "operation": "CONTAINS",
+                  "rhs": {
+                    "type": "pattern",
+                    "value": "^Delete(?!SSH|Server|Sign|CloudFront|Account|Service).*$"
+                  }
+                }
+              ]
+            },
+            "operations": [
+              {
+                "operation": "literal",
+                "destination": "activity_name",
+                "value": "Delete",
+                "type": "string"
+              },
+              {
+                "operation": "literal",
+                "destination": "activity_id",
+                "value": 6,
+                "type": "integer"
+              },
+              {
+                "operation": "literal",
+                "destination": "type_uid",
+                "value": 300106,
+                "type": "long"
+              },
+              {
+                "operation": "literal",
+                "destination": "type_name",
+                "value": "Account Change: Delete",
+                "type": "string"
+              }
+            ]
+          },
+          "elseIf": [
+            {
+              "condition": {
+                "clauses": [
+                  {
+                    "lhs": {
+                      "type": "field",
+                      "value": "eventName"
+                    },
+                    "operation": "EQUALS",
+                    "rhs": {
+                      "type": "string",
+                      "value": "AddRoleToInstanceProfile"
+                    }
+                  }
+                ]
+              },
+              "operations": [
+                {
+                  "operation": "literal",
+                  "destination": "activity_name",
+                  "value": "Attach Policy",
+                  "type": "string"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "activity_id",
+                  "value": 7,
+                  "type": "integer"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "type_uid",
+                  "value": 300107,
+                  "type": "long"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "type_name",
+                  "value": "Account Change: Attach Policy",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "condition": {
+                "logic": "OR",
+                "clauses": [
+                  {
+                    "lhs": {
+                      "type": "field",
+                      "value": "eventName"
+                    },
+                    "operation": "CONTAINS",
+                    "rhs": {
+                      "type": "pattern",
+                      "value": "^Attach\\S+$"
+                    }
+                  },
+                  {
+                    "lhs": {
+                      "type": "field",
+                      "value": "eventName"
+                    },
+                    "operation": "CONTAINS",
+                    "rhs": {
+                      "type": "pattern",
+                      "value": "^Put\\S+$"
+                    }
+                  },
+                  {
+                    "lhs": {
+                      "type": "field",
+                      "value": "eventName"
+                    },
+                    "operation": "EQUALS",
+                    "rhs": {
+                      "type": "string",
+                      "value": "AddUserToGroup"
+                    }
+                  }
+                ]
+              },
+              "operations": [
+                {
+                  "operation": "literal",
+                  "destination": "activity_name",
+                  "value": "Attach Policy",
+                  "type": "string"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "activity_id",
+                  "value": 7,
+                  "type": "integer"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "type_uid",
+                  "value": 300107,
+                  "type": "long"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "type_name",
+                  "value": "Account Change: Attach Policy",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "condition": {
+                "logic": "OR",
+                "clauses": [
+                  {
+                    "lhs": {
+                      "type": "field",
+                      "value": "eventName"
+                    },
+                    "operation": "CONTAINS",
+                    "rhs": {
+                      "type": "pattern",
+                      "value": "^Create\\S+$"
+                    }
+                  },
+                  {
+                    "lhs": {
+                      "type": "field",
+                      "value": "eventName"
+                    },
+                    "operation": "EQUALS",
+                    "rhs": {
+                      "type": "pattern",
+                      "value": "^(Resync|Enable)MFADevice$"
+                    }
+                  }
+                ]
+              },
+              "operations": [
+                {
+                  "operation": "literal",
+                  "destination": "activity_name",
+                  "value": "Create",
+                  "type": "string"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "activity_id",
+                  "value": 1,
+                  "type": "integer"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "type_uid",
+                  "value": 300101,
+                  "type": "long"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "type_name",
+                  "value": "Account Change: Create",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "condition": {
+                "logic": "OR",
+                "clauses": [
+                  {
+                    "lhs": {
+                      "type": "field",
+                      "value": "eventName"
+                    },
+                    "operation": "CONTAINS",
+                    "rhs": {
+                      "type": "pattern",
+                      "value": "^Detach\\S+$"
+                    }
+                  },
+                  {
+                    "lhs": {
+                      "type": "field",
+                      "value": "eventName"
+                    },
+                    "operation": "CONTAINS",
+                    "rhs": {
+                      "type": "pattern",
+                      "value": "^Remove\\S+$"
+                    }
+                  }
+                ]
+              },
+              "operations": [
+                {
+                  "operation": "literal",
+                  "destination": "activity_name",
+                  "value": "Detach Policy",
+                  "type": "string"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "activity_id",
+                  "value": 8,
+                  "type": "integer"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "type_uid",
+                  "value": 300108,
+                  "type": "long"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "type_name",
+                  "value": "Account Change: Detach Policy",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "condition": {
+                "logic": "OR",
+                "clauses": [
+                  {
+                    "lhs": {
+                      "type": "field",
+                      "value": "eventName"
+                    },
+                    "operation": "EQUALS",
+                    "rhs": {
+                      "type": "string",
+                      "value": "ChangePassword"
+                    }
+                  },
+                  {
+                    "lhs": {
+                      "type": "field",
+                      "value": "eventName"
+                    },
+                    "operation": "EQUALS",
+                    "rhs": {
+                      "type": "string",
+                      "value": "PasswordUpdated"
+                    }
+                  }
+                ]
+              },
+              "operations": [
+                {
+                  "operation": "literal",
+                  "destination": "activity_name",
+                  "value": "Password Change",
+                  "type": "string"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "activity_id",
+                  "value": 3,
+                  "type": "integer"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "type_uid",
+                  "value": 300103,
+                  "type": "long"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "type_name",
+                  "value": "Account Change: Password Change",
+                  "type": "string"
+                }
+              ]
+            }
+          ],
+          "else": {
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "eventName",
+                "destination": "activity_name",
+                "type": "string"
+              },
+              {
+                "operation": "literal",
+                "destination": "activity_id",
+                "value": 99,
+                "type": "integer"
+              },
+              {
+                "operation": "literal",
+                "destination": "type_uid",
+                "value": 300199,
+                "type": "long"
+              },
+              {
+                "operation": "literal",
+                "destination": "type_name",
+                "value": "Account Change: Other",
+                "type": "string"
+              }
+            ]
+          },
+          "transformation": "conditional"
+        }
+      ]
+    },
+    "api_activity": {
+      "direct_mappings": [
+        {
+          "source": "eventVersion",
+          "destination": "metadata.product.version",
+          "type": "string"
+        },
+        {
+          "source": "eventType",
+          "destination": "metadata.event_code",
+          "type": "string"
+        },
+        {
+          "source": "eventTime",
+          "destination": "time",
+          "type": "timestamp",
+          "format": "unixtimewithformat",
+          "format_string": "yyyy-MM-dd'T'HH:mm:ss[.SSSSSSSSS][.SSSSSSSS][.SSSSSSS][.SSSSSS][.SSSSS][.SSSS][.SSS][.SS][.S]'Z'"
+        },
+        {
+          "source": "eventTime",
+          "destination": "time_dt",
+          "type": "timestamp",
+          "format": "unixtimewithformat",
+          "format_string": "yyyy-MM-dd'T'HH:mm:ss[.SSSSSSSSS][.SSSSSSSS][.SSSSSSS][.SSSSSS][.SSSSS][.SSSS][.SSS][.SS][.S]'Z'"
+        },
+        {
+          "source": "awsRegion",
+          "destination": "cloud.region",
+          "type": "string"
+        },
+        {
+          "source": "errorCode",
+          "destination": "api.response.error",
+          "type": "string"
+        },
+        {
+          "source": "eventName",
+          "destination": "api.operation",
+          "type": "string"
+        },
+        {
+          "source": "errorMessage",
+          "destination": "api.response.message",
+          "type": "string"
+        },
+        {
+          "source": "eventID",
+          "destination": "metadata.uid",
+          "type": "string"
+        },
+        {
+          "source": "apiVersion",
+          "destination": "api.version",
+          "type": "string"
+        },
+        {
+          "source": "eventSource",
+          "destination": "api.service.name",
+          "type": "string"
+        },
+        {
+          "source": "resources[].ARN",
+          "destination": "resources[].uid",
+          "type": "string",
+          "observable_name": "resources[].uid",
+          "observable_type": "Resource UID",
+          "observable_type_id": 10
+        },
+        {
+          "source": "resources[].accountId",
+          "destination": "resources[].owner.account.uid",
+          "type": "string"
+        },
+        {
+          "source": "resources[].type",
+          "destination": "resources[].type",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.type",
+          "destination": "actor.user.type",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.userName",
+          "destination": "actor.user.name",
+          "type": "string",
+          "observable_name": "actor.user.name",
+          "observable_type": "User Name",
+          "observable_type_id": 4
+        },
+        {
+          "source": "userIdentity.principalId",
+          "destination": "actor.user.uid_alt",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.arn",
+          "destination": "actor.user.uid",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.accountId",
+          "destination": "actor.user.account.uid",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.accessKeyId",
+          "destination": "actor.user.credential_uid",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.sessionContext.attributes.creationDate",
+          "destination": "actor.session.created_time_dt",
+          "type": "timestamp",
+          "format": "unixtimewithformat",
+          "format_string": "yyyy-MM-dd'T'HH:mm:ss[.SSSSSSSSS][.SSSSSSSS][.SSSSSSS][.SSSSSS][.SSSSS][.SSSS][.SSS][.SS][.S]'Z'"
+        },
+        {
+          "source": "userIdentity.sessionContext.attributes.mfaAuthenticated",
+          "destination": "actor.session.is_mfa",
+          "type": "boolean"
+        },
+        {
+          "source": "userIdentity.sessionContext.sessionIssuer.arn",
+          "destination": "actor.session.issuer",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.invokedBy",
+          "destination": "actor.invoked_by",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.webIdFederationData.federatedProvider",
+          "destination": "actor.idp.name",
+          "type": "string"
+        },
+        {
+          "source": "userIdentity.identityProvider",
+          "destination": "actor.idp.name",
+          "type": "string"
+        },
+        {
+          "source": "userAgent",
+          "destination": "http_request.user_agent",
+          "type": "string"
+        },
+        {
+          "source": "vpcEndpointId",
+          "destination": "src_endpoint.uid",
+          "type": "string"
+        },
+        {
+          "source": "requestParameters",
+          "destination": "api.request.data",
+          "type": "string"
+        },
+        {
+          "source": "responseElements",
+          "destination": "api.response.data",
+          "type": "string"
+        }
+      ],
+      "transformations": [
+        {
+          "target": "class_name",
+          "value": "API Activity",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "class_uid",
+          "value": 6003,
+          "type": "integer",
+          "transformation": "literal"
+        },
+        {
+          "target": "category_name",
+          "value": "Application Activity",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "category_uid",
+          "value": 6,
+          "type": "integer",
+          "transformation": "literal"
+        },
+        {
+          "target": "cloud.provider",
+          "value": "AWS",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "severity_id",
+          "value": 1,
+          "type": "integer",
+          "transformation": "literal"
+        },
+        {
+          "target": "severity",
+          "value": "Informational",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "metadata.product.name",
+          "value": "CloudTrail",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "metadata.product.vendor_name",
+          "value": "AWS",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "metadata.profiles[]",
+          "value": "cloud,datetime",
+          "type": "string",
+          "transformation": "literal"
+        },
+        {
+          "target": "metadata.version",
+          "value": "SCHEMA_VERSION",
+          "type": "string",
+          "transformation": "variable"
+        },
+        {
+          "if": {
+            "condition": {
+              "clauses": [
+                {
+                  "lhs": {
+                    "type": "field",
+                    "column": "errorCode"
+                  },
+                  "operation": "EXISTS"
+                }
+              ]
+            },
+            "operations": [
+              {
+                "operation": "literal",
+                "value": "Failure",
+                "destination": "status",
+                "type": "string"
+              }
+            ]
+          },
+          "else": {
+            "operations": [
+              {
+                "operation": "literal",
+                "value": "Success",
+                "destination": "status",
+                "type": "string"
+              }
+            ]
+          },
+          "transformation": "conditional"
+        },
+        {
+          "if": {
+            "condition": {
+              "clauses": [
+                {
+                  "lhs": {
+                    "type": "field",
+                    "column": "eventCategory"
+                  },
+                  "operation": "EXISTS"
+                }
+              ]
+            },
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "eventCategory",
+                "destination": "metadata.product.feature.name",
+                "type": "string"
+              }
+            ]
+          },
+          "else": {
+            "operations": [
+              {
+                "operation": "literal",
+                "value": "Management, Data, and Insights",
+                "destination": "metadata.product.feature.name",
+                "type": "string"
+              }
+            ]
+          },
+          "transformation": "conditional"
+        },
+        {
+          "if": {
+            "condition": {
+              "clauses": [
+                {
+                  "lhs": {
+                    "type": "field",
+                    "column": "requestID"
+                  },
+                  "operation": "EXISTS"
+                }
+              ]
+            },
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "requestID",
+                "destination": "api.request.uid",
+                "type": "string"
+              }
+            ]
+          },
+          "else": {
+            "operations": [
+              {
+                "operation": "literal",
+                "value": "''",
+                "destination": "api.request.uid",
+                "type": "string"
+              }
+            ]
+          },
+          "transformation": "conditional"
+        },
+        {
+          "if": {
+            "condition": {
+              "clauses": [
+                {
+                  "lhs": {
+                    "type": "field",
+                    "value": "sourceIPAddress"
+                  },
+                  "operation": "CONTAINS",
+                  "rhs": {
+                    "type": "pattern",
+                    "value": "^(?:[0-9]{1,3}\\.){3}[0-9]{1,3}$"
+                  }
+                }
+              ]
+            },
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "sourceIPAddress",
+                "destination": "src_endpoint.ip",
+                "type": "string",
+                "observable_name": "src_endpoint.ip",
+                "observable_type": "IP Address",
+                "observable_type_id": 2
+              }
+            ]
+          },
+          "else": {
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "sourceIPAddress",
+                "destination": "src_endpoint.domain",
+                "type": "string",
+                "observable_name": "src_endpoint.domain",
+                "observable_type": "Hostname",
+                "observable_type_id": 1
+              }
+            ]
+          },
+          "transformation": "conditional"
+        },
+        {
+          "if": {
+            "condition": {
+              "clauses": [
+                {
+                  "lhs": {
+                    "type": "field",
+                    "value": "eventName"
+                  },
+                  "operation": "CONTAINS",
+                  "rhs": {
+                    "type": "pattern",
+                    "value": "(^Create|^Run|^Generate)"
+                  }
+                }
+              ]
+            },
+            "operations": [
+              {
+                "operation": "literal",
+                "destination": "activity_name",
+                "value": "Create",
+                "type": "string"
+              },
+              {
+                "operation": "literal",
+                "destination": "activity_id",
+                "value": "1",
+                "type": "integer"
+              },
+              {
+                "operation": "literal",
+                "destination": "type_uid",
+                "value": 600301,
+                "type": "long"
+              },
+              {
+                "operation": "literal",
+                "destination": "type_name",
+                "value": "API Activity: Create",
+                "type": "string"
+              }
+            ]
+          },
+          "elseIf": [
+            {
+              "condition": {
+                "clauses": [
+                  {
+                    "lhs": {
+                      "type": "field",
+                      "value": "eventName"
+                    },
+                    "operation": "CONTAINS",
+                    "rhs": {
+                      "type": "pattern",
+                      "value": "(^Get|^List|^Describe|^Search|^Lookup)"
+                    }
+                  }
+                ]
+              },
+              "operations": [
+                {
+                  "operation": "literal",
+                  "destination": "activity_name",
+                  "value": "Read",
+                  "type": "string"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "activity_id",
+                  "value": 2,
+                  "type": "integer"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "type_uid",
+                  "value": 600302,
+                  "type": "long"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "type_name",
+                  "value": "API Activity: Read",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "condition": {
+                "clauses": [
+                  {
+                    "lhs": {
+                      "type": "field",
+                      "value": "eventName"
+                    },
+                    "operation": "CONTAINS",
+                    "rhs": {
+                      "type": "pattern",
+                      "value": "(^Update|^Put|^Modify|^Add|^Remove|^Start|^Stop|^Attach|^Detach|^Associate|^Disassociate|^Tag|^Untag|^Enable|^Disable|^Register|^Deregister)"
+                    }
+                  }
+                ]
+              },
+              "operations": [
+                {
+                  "operation": "literal",
+                  "destination": "activity_name",
+                  "value": "Update",
+                  "type": "string"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "activity_id",
+                  "value": 3,
+                  "type": "integer"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "type_uid",
+                  "value": 600303,
+                  "type": "long"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "type_name",
+                  "value": "API Activity: Update",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "condition": {
+                "clauses": [
+                  {
+                    "lhs": {
+                      "type": "field",
+                      "value": "eventName"
+                    },
+                    "operation": "CONTAINS",
+                    "rhs": {
+                      "type": "pattern",
+                      "value": "(^Delete|^Terminate)"
+                    }
+                  }
+                ]
+              },
+              "operations": [
+                {
+                  "operation": "literal",
+                  "destination": "activity_name",
+                  "value": "Delete",
+                  "type": "string"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "activity_id",
+                  "value": 4,
+                  "type": "integer"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "type_uid",
+                  "value": 600304,
+                  "type": "long"
+                },
+                {
+                  "operation": "literal",
+                  "destination": "type_name",
+                  "value": "API Activity: Delete",
+                  "type": "string"
+                }
+              ]
+            }
+          ],
+          "else": {
+            "operations": [
+              {
+                "operation": "mapping",
+                "source": "eventName",
+                "destination": "activity_name",
+                "type": "string"
+              },
+              {
+                "operation": "literal",
+                "destination": "activity_id",
+                "value": 99,
+                "type": "integer"
+              },
+              {
+                "operation": "literal",
+                "destination": "type_uid",
+                "value": 600399,
+                "type": "long"
+              },
+              {
+                "operation": "literal",
+                "destination": "type_name",
+                "value": "API Activity: Other",
+                "type": "string"
+              }
+            ]
+          },
+          "transformation": "conditional"
+        }
+      ]
+    }
+  },
+  "mapping_selector": {
+    "cases": [
+      {
+        "condition": {
+          "logic": "AND",
+          "clauses": [
+            {
+              "lhs": {
+                "type": "field",
+                "value": "eventName"
+              },
+              "operation": "EQUALS",
+              "rhs": {
+                "type": "pattern",
+                "value": "(^ConsoleLogin|^ExternalIdPDirectoryLogin|^CheckMfa|^CredentialChallenge|^CredentialVerification|^UserAuthentication|^AssumeRole|^AssumeRoleWithSAML|^AssumeRoleWithWebIdentity)"
+              }
+            },
+            {
+              "lhs": {
+                "type": "field",
+                "value": "eventSource"
+              },
+              "operation": "EQUALS",
+              "rhs": {
+                "type": "pattern",
+                "value": "(^signin.amazonaws.com|^sts.amazonaws.com)"
+              }
+            }
+          ]
+        },
+        "selection": "authentication"
+      },
+      {
+        "condition": {
+          "logic": "AND",
+          "clauses": [
+            {
+              "lhs": {
+                "type": "field",
+                "value": "eventName"
+              },
+              "operation": "EQUALS",
+              "rhs": {
+                "type": "pattern",
+                "value": "(^UpdateRole|^AttachUserPolicy|^PutRolePermissionsBoundary|^DeletePolicy|^RemoveUserFromGroup|^ChangePassword|^CreateAccessKey|^AttachGroupPolicy|^ResyncMFADevice|^DeleteRolePolicy|^PutUserPermissionsBoundary|^CreateUser|^CreateServiceLinkedRole|^PutRolePolicy|^DetachGroupPolicy|^UpdateAccessKey|^ChangePassword|^CreateInstanceProfile|^CreateRole|^DeleteUserPermissionsBoundary|^DeleteAccountAlias|^PutGroupPolicy|^CreateLoginProfile|^DeleteGroupPolicy|^DeleteLoginProfile|^DeleteUserPolicy|^DeactivateMFADevice|^RemoveRoleFromInstanceProfile|^UpdateUser|^EnableMFADevice|^DeleteUser|^AddRoleToInstanceProfile|^UpdateAccountEmailAddress|^UpdateRoleDescription|^DetachUserPolicy|^UpdateAssumeRolePolicy|^DeleteGroup|^DeleteServiceLinkedRole|^DeleteAccessKey|^AddUserToGroup|^DeleteVirtualMFADevice|^FinalizeSmsMfaRegistration|^DeleteRolePermissionsBoundary|^DetachRolePolicy|^DeleteInstanceProfile|^UpdateGroup|^UpdateLoginProfile|^RequestSmsMfaRegistration|^DeleteRole|^PutUserPolicy|^CreateVirtualMFADevice|^AttachRolePolicy|^EmailUpdated|^AccountNameUpdated|^PasswordUpdated|^DeleteAccountPasswordPolicy|^UpdateAccountPasswordPolicy|^UpdateAccountName|^TagInstanceProfile|^TagRole|^TagUser|^UntagInstanceProfile|^UntagRole|^UntagUser|^CreateAccountAlias)"
+              }
+            },
+            {
+              "lhs": {
+                "type": "field",
+                "value": "eventSource"
+              },
+              "operation": "EQUALS",
+              "rhs": {
+                "type": "pattern",
+                "value": "(^iam.amazonaws.com|^signin.amazonaws.com)"
+              }
+            }
+          ]
+        },
+        "selection": "account_change"
+      }
+    ],
+    "default_selection": "api_activity"
+  },
+  "event_time": "eventTime",
+  "asl_version": "2.0",
+  "sourceType": "CLOUD_TRAIL_MGMT",
+  "ocsf_schema_name": "union-cloudtrail",
+  "input_file_type": "JSON",
+  "input_file_compression": "GZIP",
+  "source_record_query": "SELECT * FROM s3object[*].Records[*] s",
+  "bypass_s3_select": false,
+  "autounmapped": true,
+  "ocsf_schema_version": "1.1.0"
+}1

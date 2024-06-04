@@ -1,0 +1,349 @@
+{
+  "template": {
+    "mappings": {
+      "_meta": {
+        "version": "1.1.0",
+        "catalog": "ocsf",
+        "type": "account_change",
+        "component": "s3",
+        "labels": [
+          "ocsf",
+          "aws",
+          "s3"
+        ]
+      },
+      "properties": {
+        "activity_id": {
+          "type": "integer"
+        },
+        "activity_name": {
+          "type": "keyword"
+        },
+        "actor": {
+          "properties": {
+            "idp": {
+              "properties": {
+                "name": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "invoked_by": {
+              "type": "keyword"
+            },
+            "session": {
+              "properties": {
+                "created_time": {
+                  "type": "long"
+                },
+                "created_time_dt": {
+                  "type": "date",
+                  "format": "date_time"
+                },
+                "is_mfa": {
+                  "type": "boolean"
+                },
+                "issuer": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "user": {
+              "properties": {
+                "account": {
+                  "properties": {
+                    "uid": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "credential_uid": {
+                  "type": "keyword"
+                },
+                "type": {
+                  "type": "keyword"
+                },
+                "uid": {
+                  "type": "keyword"
+                },
+                "uid_alt": {
+                  "type": "keyword"
+                }
+              }
+            }
+          }
+        },
+        "api": {
+          "properties": {
+            "operation": {
+              "type": "keyword"
+            },
+            "request": {
+              "properties": {
+                "data": {
+                  "properties": {
+                    "userName": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "uid": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "response": {
+              "properties": {
+                "data": {
+                  "properties": {
+                    "user": {
+                      "properties": {
+                        "arn": {
+                          "type": "keyword"
+                        },
+                        "createDate": {
+                          "type": "date",
+                          "format": "MMM dd, yyyy h:mm:ss a"
+                        },
+                        "path": {
+                          "type": "keyword"
+                        },
+                        "userId": {
+                          "type": "keyword"
+                        },
+                        "userName": {
+                          "type": "keyword"
+                        }
+                      }
+                    }
+                  }
+                },
+                "error": {
+                  "type": "keyword"
+                },
+                "message": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "service": {
+              "properties": {
+                "name": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "version": {
+              "type": "keyword"
+            }
+          }
+        },
+        "category_name": {
+          "type": "keyword"
+        },
+        "category_uid": {
+          "type": "integer"
+        },
+        "class_name": {
+          "type": "keyword"
+        },
+        "class_uid": {
+          "type": "integer"
+        },
+        "cloud": {
+          "properties": {
+            "provider": {
+              "type": "keyword"
+            },
+            "region": {
+              "type": "keyword"
+            }
+          }
+        },
+        "http_request": {
+          "properties": {
+            "user_agent": {
+              "type": "keyword"
+            }
+          }
+        },
+        "metadata": {
+          "properties": {
+            "log_name": {
+              "type": "keyword"
+            },
+            "log_provider": {
+              "type": "keyword"
+            },
+            "product": {
+              "properties": {
+                "feature": {
+                  "properties": {
+                    "name": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "name": {
+                  "type": "keyword"
+                },
+                "vendor_name": {
+                  "type": "keyword"
+                },
+                "version": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "profiles": {
+              "type": "keyword"
+            },
+            "uid": {
+              "type": "keyword"
+            },
+            "version": {
+              "type": "keyword"
+            }
+          }
+        },
+        "observables": {
+          "type": "nested",
+          "properties": {
+            "name": {
+              "type": "keyword"
+            },
+            "type": {
+              "type": "keyword"
+            },
+            "type_id": {
+              "type": "integer"
+            },
+            "value": {
+              "type": "keyword"
+            }
+          }
+        },
+        "severity": {
+          "type": "keyword"
+        },
+        "severity_id": {
+          "type": "integer"
+        },
+        "src_endpoint": {
+          "properties": {
+            "ip": {
+              "type": "ip"
+            },
+            "uid": {
+              "type": "keyword"
+            }
+          }
+        },
+        "time": {
+          "type": "long"
+        },
+        "time_dt": {
+          "type": "date",
+          "format": "date_time"
+        },
+        "type_name": {
+          "type": "keyword"
+        },
+        "type_uid": {
+          "type": "integer"
+        },
+        "unmapped": {
+          "properties": {
+            "eventType": {
+              "type": "keyword"
+            },
+            "managementEvent": {
+              "type": "boolean"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "recipientAccountId": {
+              "type": "keyword"
+            },
+            "requestParameters": {
+              "properties": {
+                "userName": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "responseElements": {
+              "properties": {
+                "user": {
+                  "properties": {
+                    "arn": {
+                      "type": "keyword"
+                    },
+                    "createDate": {
+                      "type": "date",
+                      "format": "MMM dd, yyyy h:mm:ss a"
+                    },
+                    "path": {
+                      "type": "keyword"
+                    },
+                    "userId": {
+                      "type": "keyword"
+                    },
+                    "userName": {
+                      "type": "keyword"
+                    }
+                  }
+                }
+              }
+            },
+            "sessionCredentialFromConsole": {
+              "type": "keyword"
+            },
+            "userIdentity": {
+              "properties": {
+                "sessionContext": {
+                  "properties": {
+                    "attributes": {
+                      "properties": {
+                        "mfaAuthenticated": {
+                          "type": "keyword"
+                        }
+                      }
+                    },
+                    "sessionIssuer": {
+                      "properties": {
+                        "accountId": {
+                          "type": "keyword"
+                        },
+                        "principalId": {
+                          "type": "keyword"
+                        },
+                        "type": {
+                          "type": "keyword"
+                        }
+                      }
+                    },
+                    "webIdFederationData": {
+                      "properties": {}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "user": {
+          "properties": {
+            "name": {
+              "type": "keyword"
+            },
+            "uid": {
+              "type": "keyword"
+            }
+          }
+        }
+      }
+    }
+  }
+}
